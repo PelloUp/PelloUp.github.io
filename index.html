@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <input type="text" id="inputBox">
+  <button id="queryBtn">查询</button>
+  <div id="resultArea"></div>
+
+  <script>
+    const queryBtn = document.getElementById('queryBtn');
+    const inputBox = document.getElementById('inputBox');
+    const resultArea = document.getElementById('resultArea');
+
+    queryBtn.addEventListener('click', () => {
+      const value = inputBox.value;
+
+      const promise = new Promise((resolve) => {
+        // 模拟接口请求成功后返回数据
+        setTimeout(() => {
+          resolve(`查询结果: ${value}`);
+        }, 1000);
+      });
+
+      promise.then(result => {
+        resultArea.innerHTML = result;
+      });
+    });
+  </script>
+</body>
+
+</html>
